@@ -1,0 +1,28 @@
+spring:
+  rabbitmq:
+   host: 106.53.12.63
+   port: 5672
+   username: admin
+   password: 123456
+   virtual-host: /
+   listener:
+     type: simple
+     direct:
+       acknowledge-mode: manual
+       consumers-per-queue: 2
+       prefetch: 2
+       missing-queues-fatal: true
+       default-requeue-rejected: false
+       auto-startup: false
+     simple:
+       acknowledge-mode: manual
+       prefetch: 2
+       concurrency: 5
+       max-concurrency: 10
+       missing-queues-fatal: true
+       default-requeue-rejected: false
+       auto-startup: false
+       batch-size: 5
+
+server:
+  port: 8082
